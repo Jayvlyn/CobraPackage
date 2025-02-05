@@ -5,10 +5,10 @@ using UnityEngine.Events;
 
 namespace Cobra.DesignPattern
 {
-    public class EventBus
+    public class _EventBus
     {
         List<UnityAction<EventSubscriberArgs>> conglomerate = new List<UnityAction<EventSubscriberArgs>>();
-        public EventBus()
+        public _EventBus()
         {
         }
         
@@ -53,17 +53,17 @@ namespace Cobra.DesignPattern
         }
         public int Total => map.Count;
         public int Entries => map.Keys.Count;
-        private Dictionary<string, EventBus> map = new Dictionary<string, EventBus>();
+        private Dictionary<string, _EventBus> map = new Dictionary<string, _EventBus>();
 
         private bool HasEventID(string eventID)
         {
             return map.ContainsKey(eventID);
         }
 
-        private EventBus GetEventService(string eventID)
+        private _EventBus GetEventService(string eventID)
         {
             if(HasEventID(eventID)) return map[eventID];
-            map.Add(eventID, new EventBus());
+            map.Add(eventID, new _EventBus());
             return map[eventID];
         }
     }

@@ -11,7 +11,7 @@ namespace Cobra.UnitTesting
         public void Adding()
         {
             //Assemble
-            EventBus bus = new EventBus();
+            _EventBus bus = new _EventBus();
             
             //Act
             bus.AddListener(FakeMethod);
@@ -23,7 +23,7 @@ namespace Cobra.UnitTesting
         public void Removing()
         {
             //Assemble
-            EventBus bus = new EventBus();
+            _EventBus bus = new _EventBus();
             
             //Act
             bus.AddListener(FakeMethod);
@@ -36,7 +36,7 @@ namespace Cobra.UnitTesting
         public void Invocation()
         {
             //Assemble
-            EventBus bus = new EventBus();
+            _EventBus bus = new _EventBus();
             
             //Act
             bus.AddListener(FakeMethod);
