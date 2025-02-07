@@ -85,8 +85,14 @@ namespace Cobra.DesignPattern.Observer
         }
 
         public int Entries => events.Count;
-        public int Count(string key) => events[key].Count;
-        public void Clear(string key) => events[key].Clear();
+        public int Count(string key) => events.TryGetValue(key, out EventBus<T> bus) ? bus.Count : 0;
+        public void Clear(string key)
+        {
+            if (events.TryGetValue(key, out EventBus<T> bus))
+            {
+                bus.Clear();
+            }
+        }
         public void ClearAll() => events.Clear();
         public List<string> Keys => events.Keys.ToList();
     }
