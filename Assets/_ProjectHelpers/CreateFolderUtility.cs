@@ -76,6 +76,14 @@ public class CreateFolderUtility : EditorWindow
             "    public class " + scriptName + " : UnitTest\n" +
             "    {\n" +
             "        \n" +
+            "        [Test]\n" +
+            "        public void TESTNAME()\n" +
+            "        {\n" +
+            "            //Assemble\n" +
+            "            //Act\n" +
+            "            //Assert\n" +
+            "        }\n" +
+            "        \n" +
             "    }\n" +
             "}";
 

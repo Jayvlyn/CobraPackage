@@ -41,9 +41,10 @@ namespace Cobra.DesignPattern
         }
 
         public static Optional<T> Some(T value) => new Optional<T>(value);
-        public static Optional<T> None() => NoValue;
+        public static Optional<T> None => NoValue;
 
         public override bool Equals(object obj) => obj is Optional<T> other && Equals(other);
+        
         public bool Equals(Optional<T> other) => !hasValue ? !other.hasValue : EqualityComparer<T>.Default.Equals(value, other.value);
 
         public override int GetHashCode() => (hasValue.GetHashCode() * 397) ^ EqualityComparer<T>.Default.GetHashCode(value);
@@ -54,6 +55,10 @@ namespace Cobra.DesignPattern
 
         public static implicit operator bool(Optional<T> value) => value.hasValue;
 
-        public static explicit operator T(Optional<T> value) => value.Value;
+        public static implicit operator T(Optional<T> value) => value.Value;
+        
+        
+        //public static explicit 
+        
     }
 }
