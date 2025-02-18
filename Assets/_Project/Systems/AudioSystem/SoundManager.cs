@@ -21,8 +21,8 @@ namespace Cobra.Audio {
 
         public SoundBuilder CreateSoundBuilder() => new SoundBuilder(this);
 
-        public bool CanPlaySound(SoundData data) {
-            if (!data.frequentSound) return true;
+        public bool CanPlaySound(SoundDataProvider data) {
+            if (!data.FrequentSound) return true;
 
             if (FrequentSoundEmitters.Count >= maxSoundInstances) {
                 try {

@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 namespace Cobra.Audio {
     [RequireComponent(typeof(AudioSource))]
     public class SoundEmitter : MonoBehaviour {
-        public SoundData Data { get; private set; }
+        public SoundDataProvider Data { get; private set; }
         public LinkedListNode<SoundEmitter> Node { get; set; }
 
         AudioSource audioSource;
@@ -17,34 +17,34 @@ namespace Cobra.Audio {
             audioSource = gameObject.GetOrAddComponent<AudioSource>();
         }
 
-        public void Initialize(SoundData data) {
+        public void Initialize(SoundDataProvider data) {
             Data = data;
-            audioSource.clip = data.clip;
-            audioSource.outputAudioMixerGroup = data.mixerGroup;
-            audioSource.loop = data.loop;
-            audioSource.playOnAwake = data.playOnAwake;
+            audioSource.clip = data.Clip;
+            audioSource.outputAudioMixerGroup = data.MixerGroup;
+            audioSource.loop = data.Loop;
+            audioSource.playOnAwake = data.PlayOnAwake;
             
-            audioSource.mute = data.mute;
-            audioSource.bypassEffects = data.bypassEffects;
-            audioSource.bypassListenerEffects = data.bypassListenerEffects;
-            audioSource.bypassReverbZones = data.bypassReverbZones;
+            audioSource.mute = data.Mute;
+            audioSource.bypassEffects = data.BypassEffects;
+            audioSource.bypassListenerEffects = data.BypassListenerEffects;
+            audioSource.bypassReverbZones = data.BypassReverbZones;
             
-            audioSource.priority = data.priority;
-            audioSource.volume = data.volume;
-            audioSource.pitch = data.pitch;
-            audioSource.panStereo = data.panStereo;
-            audioSource.spatialBlend = data.spatialBlend;
-            audioSource.reverbZoneMix = data.reverbZoneMix;
-            audioSource.dopplerLevel = data.dopplerLevel;
-            audioSource.spread = data.spread;
+            audioSource.priority = data.Priority;
+            audioSource.volume = data.Volume;
+            audioSource.pitch = data.Pitch;
+            audioSource.panStereo = data.PanStereo;
+            audioSource.spatialBlend = data.SpatialBlend;
+            audioSource.reverbZoneMix = data.ReverbZoneMix;
+            audioSource.dopplerLevel = data.DopplerLevel;
+            audioSource.spread = data.Spread;
             
-            audioSource.minDistance = data.minDistance;
-            audioSource.maxDistance = data.maxDistance;
+            audioSource.minDistance = data.MinDistance;
+            audioSource.maxDistance = data.MaxDistance;
             
-            audioSource.ignoreListenerVolume = data.ignoreListenerVolume;
-            audioSource.ignoreListenerPause = data.ignoreListenerPause;
+            audioSource.ignoreListenerVolume = data.IgnoreListenerVolume;
+            audioSource.ignoreListenerPause = data.IgnoreListenerPause;
             
-            audioSource.rolloffMode = data.rolloffMode;
+            audioSource.rolloffMode = data.RolloffMode;
         }
 
         public void Play() {
@@ -69,10 +69,6 @@ namespace Cobra.Audio {
             
             audioSource.Stop();
             SoundManager.Instance.ReturnToPool(this);
-        }
-
-        public void WithRandomPitch(float min = -0.05f, float max = 0.05f) {
-            audioSource.pitch += Random.Range(min, max);
         }
     }
 }

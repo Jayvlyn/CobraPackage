@@ -15,12 +15,7 @@ namespace Cobra.Audio {
             return this;
         }
 
-        public SoundBuilder WithRandomPitch() {
-            this.randomPitch = true;
-            return this;
-        }
-
-        public void Play(SoundData soundData) {
+        public void Play(SoundDataProvider soundData) {
             if (soundData == null) {
                 Debug.LogError("SoundData is null");
                 return;
@@ -32,12 +27,8 @@ namespace Cobra.Audio {
             soundEmitter.Initialize(soundData);
             soundEmitter.transform.position = position;
             soundEmitter.transform.parent = soundManager.transform;
-
-            if (randomPitch) {
-                soundEmitter.WithRandomPitch();
-            }
-
-            if (soundData.frequentSound) {
+            
+            if (soundData.FrequentSound) {
                 soundEmitter.Node = soundManager.FrequentSoundEmitters.AddLast(soundEmitter);
             }
             
