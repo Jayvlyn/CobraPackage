@@ -83,7 +83,7 @@ namespace Cobra.GUI
 
         private void OpenInitialMenuPiece()
         {
-            GetInitialPageMenu().Open();
+            GetInitialPageMenu().RequestOpen();
             currentPageMenu = initialPageMenu;
         }
     }

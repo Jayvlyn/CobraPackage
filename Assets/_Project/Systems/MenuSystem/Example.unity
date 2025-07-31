@@ -340,7 +340,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 436914363}
         m_TargetAssemblyTypeName: Cobra.GUI.PageMenu, Cobra
-        m_MethodName: Open
+        m_MethodName: RequestOpen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -878,7 +878,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 648346289}
         m_TargetAssemblyTypeName: Cobra.GUI.PageMenu, Cobra
-        m_MethodName: Open
+        m_MethodName: RequestOpen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1627,7 +1627,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 436914363}
         m_TargetAssemblyTypeName: Cobra.GUI.PageMenu, Cobra
-        m_MethodName: Open
+        m_MethodName: RequestOpen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2503,7 +2503,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1267434508}
         m_TargetAssemblyTypeName: Cobra.GUI.PageMenu, Cobra
-        m_MethodName: Open
+        m_MethodName: RequestOpen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2636,7 +2636,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1267434508}
         m_TargetAssemblyTypeName: Cobra.GUI.PageMenu, Cobra
-        m_MethodName: Open
+        m_MethodName: RequestOpen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2769,7 +2769,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 436914363}
         m_TargetAssemblyTypeName: Cobra.GUI.PageMenu, Cobra
-        m_MethodName: Open
+        m_MethodName: RequestOpen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3619,7 +3619,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1267434508}
         m_TargetAssemblyTypeName: Cobra.GUI.PageMenu, Cobra
-        m_MethodName: Open
+        m_MethodName: RequestOpen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3888,7 +3888,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 648346289}
         m_TargetAssemblyTypeName: Cobra.GUI.PageMenu, Cobra
-        m_MethodName: Open
+        m_MethodName: RequestOpen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4244,7 +4244,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 648346289}
         m_TargetAssemblyTypeName: Cobra.GUI.PageMenu, Cobra
-        m_MethodName: Open
+        m_MethodName: RequestOpen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

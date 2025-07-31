@@ -23,25 +23,25 @@ namespace Cobra.GUI
         {
             if (newPage == this)
             {
-                OnOpen();
+                OnShow();
             }
             else
             {
-                OnClose();
+                OnHide();
             }
         }
 
-        public void Open()
+        public void RequestOpen()
         {
             parentMenuController.GoTo(this);
         }
 
-        private void OnOpen()
+        private void OnShow()
         {
             gameObject.SetActive(true);
         }
 
-        private void OnClose()
+        private void OnHide()
         {
             gameObject.SetActive(false);
         }
