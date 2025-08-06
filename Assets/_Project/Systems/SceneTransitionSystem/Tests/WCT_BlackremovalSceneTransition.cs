@@ -1,31 +1,32 @@
 using NaughtyAttributes;
 using UnityEngine;
 
-namespace Cobra
+namespace Cobra.UnitTesting
 {
-    public class WCT_BlackremovalSceneTransition : SceneTransition
+    public class WCT_BlackRemovalSceneTransition : SceneTransitionArrival
     {
         [SerializeField] private RectTransform blackoutScene;
         [SerializeField] private float speed;
-        protected override void OnStartChange()
-        {
-            blackoutScene.gameObject.SetActive(true);
-        }
+       
 
-        protected override void OnUpdate()
+        protected override void Transition()
         {
             blackoutScene.transform.Translate(Vector3.left * (Time.deltaTime * speed));
         }
 
-        protected override bool TransitionComplete()
+        protected override void StartTransition()
         {
-            return blackoutScene.anchoredPosition.x > 0;
+            blackoutScene.gameObject.SetActive(true);
         }
-        
-        [Button]
-        public void DoIt()
+
+        protected override bool IsTransitionComplete()
         {
-            ChangeScene();
+            return blackoutScene.anchoredPosition.x < -900;
+        }
+
+        protected override void EndTransition()
+        {
+            blackoutScene.gameObject.SetActive(false);
         }
     }
 }

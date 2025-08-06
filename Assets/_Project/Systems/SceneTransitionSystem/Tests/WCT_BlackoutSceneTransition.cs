@@ -3,29 +3,25 @@ using UnityEngine;
 
 namespace Cobra
 {
-    public class WCT_BlackoutSceneTransition : SceneTransition
+    public class WCT_BlackoutSceneTransition : SceneTransitionDeparture
     {
         [SerializeField] private RectTransform blackoutScene;
         [SerializeField] private float speed;
-        protected override void OnStartChange()
-        {
-            blackoutScene.gameObject.SetActive(true);
-        }
+        
 
-        protected override void OnUpdate()
+        protected override void Transition()
         {
             blackoutScene.transform.Translate(Vector3.right * (Time.deltaTime * speed));
         }
 
-        protected override bool TransitionComplete()
+        protected override void StartTransition()
+        {
+            blackoutScene.gameObject.SetActive(true);
+        }
+
+        protected override bool IsTransitionComplete()
         {
             return blackoutScene.anchoredPosition.x > 0;
-        }
-        
-        [Button]
-        public void DoIt()
-        {
-            ChangeScene();
         }
     }
 }
