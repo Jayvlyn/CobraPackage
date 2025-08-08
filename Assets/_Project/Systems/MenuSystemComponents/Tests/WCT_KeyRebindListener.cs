@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Cobra.GUI
 {
-    public class KeyRebindListener : MonoBehaviour
+    public class WCT_KeyRebindListener : MonoBehaviour
     {
         [SerializeField] private TMP_Text bindingDisplayText;
         public void BindingDisplayChange(KeyRebindController rebind, string displayString, string deviceLayoutName, string controlPath)

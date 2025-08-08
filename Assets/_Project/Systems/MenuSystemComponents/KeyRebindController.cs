@@ -63,19 +63,45 @@ namespace Cobra.GUI
 
         public void Save()
         {
-            
+            if (!ResolveActionAndBinding(out var action, out var bindingIndex))
+                return;
+
+            // Get the override path (null if not overridden)
+            var overridePath = action.bindings[bindingIndex].overridePath;
+
+            var saveKey = $"{actionReference.name}_{m_BindingId}";
+            PlayerPrefs.SetString(saveKey, overridePath ?? string.Empty);
         }
 
         public void Load()
         {
-            
+            if (!ResolveActionAndBinding(out var action, out var bindingIndex))
+                return;
+
+            var saveKey = $"{actionReference.name}_{m_BindingId}";
+            var savedOverride = PlayerPrefs.GetString(saveKey, null);
+
+            if (!string.IsNullOrEmpty(savedOverride))
+                action.ApplyBindingOverride(bindingIndex, savedOverride);
         }
+
 
         private void TryLoadSaveThenDefault()
         {
-            //TODO: Check Save
-            ResetToDefault();
+            if (!ResolveActionAndBinding(out var action, out var bindingIndex))
+                return;
+
+            var saveKey = $"{actionReference.name}_{m_BindingId}";
+            if (PlayerPrefs.HasKey(saveKey))
+            {
+                Load();
+            }
+            else
+            {
+                ResetToDefault();
+            }
         }
+
         public void ResetToDefault()
         {
             if (!ResolveActionAndBinding(out var action, out var bindingIndex))
